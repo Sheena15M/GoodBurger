@@ -19,6 +19,7 @@ function objToSql(ob) {
 for (var key in ob) {
     var value = ob [key];
     if (Object.hasOwnProperty.call(ob,key)){
+        //Make quotation marks for any phrases with spaces
         if (typeof value === "string" && value.indexOf(" ") >= 0) {
             value = "'" + value + "'";
         }
@@ -28,10 +29,11 @@ for (var key in ob) {
 return arr.toString();
 }
 
+//Here we can see all the burgers that are in the db
 var orm = {
     all: function(tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
-        connection.query(queryString, function (err,result){
+        connection.query(queryString, function (err,result) {
             if (err) {
                 throw err;
             }
@@ -39,9 +41,14 @@ var orm = {
         }
         );
     },
+    //Make your burger
+    addOne: function(table, cols, vals, cb) {
+        var queryString = "INSERT INTO " + table;
+    }
     update: function(table, objColVals, condition, cb) {
         var queryString = "UPDATE " + table;
 
-        queryString +
+        queryString += " SET ";
+        queryString += objToSql (objColVals);
     }
-}
+};
