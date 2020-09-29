@@ -2,7 +2,7 @@
 var express = require ("express");
 
 //process.env.PORT is to connect to Heroku and 8080 is for local use
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3306;
 
 var app = express ();
 
