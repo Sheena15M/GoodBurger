@@ -55,7 +55,46 @@ var orm = {
             if (err) {
                 throw err
             }
+            cb(result);
         }
-        )
+        );
+    },
+    //After you devour the burger, make it true
+    changeOne: function(table, objColVals, condition, cb) {
+        var queryString = "UPDATE" + table;
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
+        
+        console.log(queryString);
+
+        connection.query(queryString, function(err, result){
+            if (err) {
+                throw err
+            }
+            cb(result);
+        }
+        );
+    },
+    //Finished with the burger? Throw it away
+    deleteOne: function (table, condition, cb) {
+        var queryString = "DELETE FROM " + table;
+        queryString += " WHERE ";
+        queryString += condition;
+
+        console.log(queryString);
+
+        connection.query(queryString, function(err, result){
+            if (err) {
+                throw err
+            }
+            cb(result);
+        }
+        );
     }
+};
+//Send ORM to exports
+module.exports = orm;
+
     
