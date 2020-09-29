@@ -18,8 +18,17 @@ var burger ={
     },
     //Once devoured, make it true
     changeOne: function (objColVals, condition, cb){
-        orm.changeOne("burgers", objColVals,condition, function(res){
+        orm.changeOne("burger", objColVals,condition, function(res){
             cb(res);
-        })
+        });
+    },
+    //Done eating, throw it away
+    deleteOne: function(condition, cb){
+        orm.deleteOne("burger", condition, function(res){
+            cb(res);
+        }
+        );
     }
-}
+};
+//Don't forget to export
+module.exports = burger;
