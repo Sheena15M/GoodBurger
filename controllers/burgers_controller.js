@@ -15,9 +15,10 @@ router.get("/", function (req, res) {
 
 //Burger making station
 router.post("/burgers/create", function (req, res) {
-    burger.create (req.body.burger_name, function (result) {
+    console.log('this route is hit')
+    burger.addOne (req.body.burger_name, function (result) {
         console.log(result);
-        res.redirect("");
+        //res.redirect("");
     });
 
 });

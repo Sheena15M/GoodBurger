@@ -1,5 +1,5 @@
 .jumbotron {
-    background-image: url("/assets/img/background.jpg");
+    background-image: url("/Assets/images/yumburger.jpeg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -7,7 +7,7 @@
 }
 
 .jumbotron > h1 {
-    font-family: 'Creepster', cursive;
+    font-family: 'Veranda', cursive;
 }
 
 #newburger {
