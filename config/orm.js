@@ -6,6 +6,8 @@ function printQuestionMarks(num) {
     var arr = [];
     
     for (var i = 0; i < num; i++) {
+
+        arr.push("?")
     }
 
     return arr.toString();
@@ -43,6 +45,7 @@ var orm = {
     },
     //Make your burger
     addOne: function(table, cols, vals, cb) {
+        console.log(vals)
         var queryString = "INSERT INTO " + table;
         queryString += " (";
         queryString += cols.toString();
@@ -51,6 +54,7 @@ var orm = {
         queryString += printQuestionMarks(vals.length);
         queryString += ") ";
         
+        console.log(queryString)
         connection.query(queryString, vals, function(err, result) {
             if (err) {
                 throw err

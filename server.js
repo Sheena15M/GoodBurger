@@ -6,7 +6,7 @@ var PORT = process.env.PORT || 8080;
 
 var app = express ();
 
-app.use(express.static("Assets"));
+app.use(express.static("assets"));
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());

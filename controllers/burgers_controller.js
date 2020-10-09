@@ -14,7 +14,7 @@ router.get("/", function (req, res) {
 });
 
 //Burger making station
-router.post("/burgers/create", function (req, res) {
+router.post("/api/burgers/create", function (req, res) {
     console.log('this route is hit')
     burger.addOne (req.body.burger_name, function (result) {
         console.log(result);
@@ -23,7 +23,7 @@ router.post("/burgers/create", function (req, res) {
 
 });
 
-router.put ("/burgers/:id", function (req, res) {
+router.put ("/api/burgers/:id", function (req, res) {
     var condition = "id =" + req.params.id;
     console.log ("condition", condition);
 
@@ -35,7 +35,7 @@ router.put ("/burgers/:id", function (req, res) {
         }
     });
 });
-router.delete ("/burgers/:id", function(req, res) {
+router.delete ("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
     console.log ("condition, condition");
 

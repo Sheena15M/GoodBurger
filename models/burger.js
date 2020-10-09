@@ -10,8 +10,8 @@ var burger ={
         );
     },
     //Create the burgers in the database aka db
-    addOne: function (cols, vals, cb) {
-        orm.addOne("burgers", cols, vals, function(res) {
+    addOne: function (value, cb) {
+        orm.addOne("burgers", ["burger_name", "devoured"], [value, false], function(res) {
             cb(res);
         }
         );
