@@ -17,8 +17,9 @@ router.get("/", function (req, res) {
 router.post("/api/burgers/create", function (req, res) {
     console.log('this route is hit')
     burger.addOne (req.body.burger_name, function (result) {
-        console.log(result);
-        //res.redirect("");
+       console.log(result)
+       console.log('last one ')
+        res.redirect("/");
     });
 
 });
@@ -27,7 +28,7 @@ router.put ("/api/burgers/:id", function (req, res) {
     var condition = "id =" + req.params.id;
     console.log ("condition", condition);
 
-    burger.updateOne({ devoured: req.body.devoured }, condition, function (result) {
+    burger.changeOne({ devoured: req.body.devoured }, condition, function (result) {
         if (result.changedRows === 0) {
             return res.status(404).end();
         } else {

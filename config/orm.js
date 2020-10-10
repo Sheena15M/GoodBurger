@@ -59,13 +59,16 @@ var orm = {
             if (err) {
                 throw err
             }
+
+            console.log(cb)
+            console.log("here")
             cb(result);
         }
         );
     },
     //After you devour the burger, make it true
     changeOne: function(table, objColVals, condition, cb) {
-        var queryString = "UPDATE" + table;
+        var queryString = "UPDATE " + table;
         queryString += " SET ";
         queryString += objToSql(objColVals);
         queryString += " WHERE ";

@@ -16,7 +16,7 @@ $(function() {
       }).then(function() {
           console.log("Added new burger");
           // Reload the page to get the updated burger list.
-          //location.reload();
+          location.reload();
       });
   });
   $(".eatburger").on("click", function(event) {

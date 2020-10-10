@@ -12,6 +12,8 @@ var burger ={
     //Create the burgers in the database aka db
     addOne: function (value, cb) {
         orm.addOne("burgers", ["burger_name", "devoured"], [value, false], function(res) {
+            
+            console.log('here too')
             cb(res);
         }
         );
