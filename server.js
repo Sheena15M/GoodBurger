@@ -6,20 +6,20 @@ var PORT = process.env.PORT || 8080;
 
 var app = express ();
 
-app.use(express.static("assets"));
+app.use(express.static("Assets"));
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
 //Handlebar time
 var exphbs = require ("express-handlebars");
-app. engine ("handlebars", exphbs({ defaultLayout: "main" }));
-app. set ("view engine", "handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 //Server acess for the routes
 var routes = require("./controllers/burgers_controller.js");
 
-app.use (routes);
+app.use(routes);
 
 //The server starts here 
 app.listen(PORT, function(){
