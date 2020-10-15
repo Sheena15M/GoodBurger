@@ -8,6 +8,7 @@ router.get("/", function (req, res) {
         var hbsObject = {
             burger: data
         };
+        console.log("HERE!")
         console.log (hbsObject);
         res.render ("index", hbsObject);
     });
@@ -37,10 +38,11 @@ router.put ("/api/burgers/:id", function (req, res) {
     });
 });
 router.delete ("/api/burgers/:id", function(req, res) {
+    console.log("deleter here")
     var condition = "id = " + req.params.id;
     console.log ("condition, condition");
 
-    burger.delete (condition, function (result) {
+    burger.deleteOne (condition, function (result) {
         if (result.affectedRows == 0) {
             return res.status(404).end();
         } else {
